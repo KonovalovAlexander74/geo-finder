@@ -17,10 +17,8 @@ class TileFinder extends ChangeNotifier {
     final merc = _latLongToMerc();
     final pixels = _mercToPixels(merc);
 
-    int x = pixels['x'] ?? 1;
-    int y = pixels['y'] ?? 1;
-    y -= 1;
-    x -= 1;
+    int x = pixels['x'] ?? 0;
+    int y = pixels['y'] ?? 0;
 
     _url =
         'https://core-carparks-renderer-lots.maps.yandex.net/maps-rdr-carparks/tiles?l=carparks&x=$x&y=$y&z=19&scale=1&lang=ru_RU&v=20220606-203012&experimental_data_poi=postprocess_poi_density_v3';
