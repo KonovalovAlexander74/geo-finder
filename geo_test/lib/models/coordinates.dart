@@ -1,0 +1,4 @@
+enum Coordinates {
+  latitude,
+  longitude,
+}
