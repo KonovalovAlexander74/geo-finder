@@ -7,7 +7,7 @@ class TileFindButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<TileFinder>();
+    final model = context.read<TileFinder>();
 
     return SizedBox(
       width: 140,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:geo_test/models/coordinates.dart';
+import 'package:geo_test/provider/tile_finder.dart';
 import 'package:geo_test/widgets/coordinate_element.dart';
 import 'package:geo_test/widgets/tile_find_button.dart';
 import 'package:geo_test/widgets/tile_image.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -50,7 +52,11 @@ class _HomePageState extends State<HomePage> {
             ),
             const TileImage(),
             const SizedBox(
-              height: 40,
+              height: 35,
+            ),
+            const CoordinatesLabel(),
+            const SizedBox(
+              height: 5,
             ),
             const Center(
               child: TileFindButtonWidget(),
@@ -60,6 +66,21 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CoordinatesLabel extends StatelessWidget {
+  const CoordinatesLabel({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final model = context.watch<TileFinder>();
+    return Center(
+      child: Text(
+        'X: ${model.x}   Y: ${model.y}',
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
     );
   }
